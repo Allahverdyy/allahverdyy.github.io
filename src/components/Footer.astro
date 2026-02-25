@@ -1,0 +1,121 @@
+---
+import data from '../data/portfolio.json';
+const { profile } = data;
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-left">
+      <a href="#" class="footer-logo">{profile.name}<span class="logo-dot">.</span></a>
+      <p class="footer-tagline">{profile.tagline}</p>
+    </div>
+    <div class="footer-right">
+      <div class="footer-socials">
+        <a href={profile.socials.github} target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+        <a href={profile.socials.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <a href={profile.socials.twitter} target="_blank" rel="noopener" aria-label="Twitter">Twitter</a>
+      </div>
+      <p class="footer-copy">&copy; {year} {profile.name}. Tüm hakları saklıdır.</p>
+    </div>
+  </div>
+  <a href="#" class="back-to-top" aria-label="Yukarı">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+  </a>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0;
+    position: relative;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .footer-logo {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  .logo-dot {
+    color: var(--accent);
+  }
+
+  .footer-tagline {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .footer-right {
+    text-align: right;
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+  }
+
+  .footer-socials a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: var(--transition);
+  }
+
+  .footer-socials a:hover {
+    color: var(--accent);
+  }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    z-index: 50;
+    opacity: 0.7;
+  }
+
+  .back-to-top:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 768px) {
+    .footer-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer-right {
+      text-align: center;
+    }
+    .footer-socials {
+      justify-content: center;
+    }
+  }
+</style>

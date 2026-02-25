@@ -1,0 +1,71 @@
+---
+import '../styles/global.css';
+import '../styles/animations.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Allahverdi | Full Stack Geliştirici & Girişimci',
+  description = 'Flutter ve Next.js mimarileriyle ölçeklenebilir dijital ürünler inşa eden Full Stack Geliştirici. Modern web ve mobil çözümler.',
+} = Astro.props;
+
+const siteUrl = 'https://allahverdi.dev';
+---
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="author" content="Allahverdi" />
+  <link rel="canonical" href={siteUrl} />
+
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={siteUrl} />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:image" content={`${siteUrl}/og-image.jpg`} />
+  <meta property="og:site_name" content="Allahverdi" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`${siteUrl}/og-image.jpg`} />
+  <meta name="twitter:creator" content="@allahverdyy" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=satoshi@300,400,500,600,700,900&display=swap" />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Allahverdi",
+    "jobTitle": "Full Stack Geliştirici & Girişimci",
+    "url": siteUrl,
+    "email": "samet.1198@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "İskenderun",
+      "addressRegion": "Hatay",
+      "addressCountry": "TR"
+    },
+    "sameAs": [
+      "https://github.com/allahverdyy",
+      "https://linkedin.com/in/allahverdyy",
+      "https://twitter.com/allahverdyy",
+      "https://instagram.com/allahverdyy"
+    ]
+  })} />
+</head>
+<body>
+  <slot />
+  <script src="../scripts/scroll-reveal.js"></script>
+  <script src="../scripts/whatsapp-widget.js"></script>
+</body>
+</html>

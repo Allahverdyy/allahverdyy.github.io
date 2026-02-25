@@ -1,0 +1,153 @@
+---
+import data from '../data/portfolio.json';
+const { aboutSection, profile } = data;
+---
+<section id="hakkimda">
+  <div class="container">
+    <div class="about-grid" data-reveal>
+      <div class="about-content">
+        <span class="section-label">Hakkımda</span>
+        <h2 class="section-title">Sadece geliştirici değil,<br/><span class="accent">çözüm mimarı.</span></h2>
+        <p class="about-bio">{aboutSection.bio}</p>
+        <div class="about-philosophy">
+          <div class="philosophy-line"></div>
+          <p>"{aboutSection.philosophy}"</p>
+        </div>
+      </div>
+      <div class="about-details">
+        <div class="detail-card" data-reveal style="--delay: 0.1s">
+          <span class="detail-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <div>
+            <span class="detail-label">Konum</span>
+            <span class="detail-value">{profile.location}</span>
+          </div>
+        </div>
+        <div class="detail-card" data-reveal style="--delay: 0.2s">
+          <span class="detail-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </span>
+          <div>
+            <span class="detail-label">E-posta</span>
+            <span class="detail-value">{profile.email}</span>
+          </div>
+        </div>
+        <div class="detail-card" data-reveal style="--delay: 0.3s">
+          <span class="detail-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          </span>
+          <div>
+            <span class="detail-label">Durum</span>
+            <span class="detail-value">{profile.status}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .accent {
+    color: var(--accent);
+  }
+
+  .about-bio {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.85;
+    margin-bottom: 32px;
+  }
+
+  .about-philosophy {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+
+  .philosophy-line {
+    width: 4px;
+    min-height: 40px;
+    background: var(--accent);
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .about-philosophy p {
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+  }
+
+  .about-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 60px;
+  }
+
+  .detail-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: var(--transition);
+  }
+
+  .detail-card:hover {
+    border-color: rgba(232, 197, 71, 0.2);
+    box-shadow: 0 4px 20px var(--accent-dim);
+    transform: translateX(4px);
+  }
+
+  .detail-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .detail-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .detail-value {
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .about-details {
+      padding-top: 0;
+    }
+  }
+</style>

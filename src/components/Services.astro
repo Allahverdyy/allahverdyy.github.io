@@ -1,0 +1,110 @@
+---
+import data from '../data/portfolio.json';
+const { services } = data;
+
+const iconMap: Record<string, string> = {
+  smartphone: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>',
+  globe: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>',
+  'pen-tool': '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z"/><path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18"/><path d="m2.3 2.3 7.286 7.286"/><circle cx="11" cy="11" r="2"/></svg>',
+};
+---
+<section id="hizmetler">
+  <div class="container">
+    <div class="services-header" data-reveal>
+      <span class="section-label">Hizmetler</span>
+      <h2 class="section-title">Neler Yapabilirim?</h2>
+      <p class="section-subtitle">Dijital vizyonunuzu gerçeğe dönüştürmek için sunduğum uzmanlık alanları.</p>
+    </div>
+    <div class="services-grid">
+      {services.map((service, i) => (
+        <div class="service-card" data-reveal style={`--delay: ${i * 0.15}s`}>
+          <div class="service-icon" set:html={iconMap[service.icon] || iconMap.globe} />
+          <h3 class="service-title">{service.title}</h3>
+          <p class="service-desc">{service.description}</p>
+          <div class="service-glow"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .services-header .section-subtitle {
+    margin-inline: auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .service-card {
+    position: relative;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    text-align: center;
+    transition: var(--transition);
+    overflow: hidden;
+  }
+
+  .service-card:hover {
+    border-color: rgba(232, 197, 71, 0.2);
+    transform: translateY(-6px);
+  }
+
+  .service-card:hover .service-glow {
+    opacity: 1;
+  }
+
+  .service-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, var(--accent-dim), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+
+  .service-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-title {
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

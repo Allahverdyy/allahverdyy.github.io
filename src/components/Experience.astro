@@ -1,0 +1,179 @@
+---
+import data from '../data/portfolio.json';
+const { experience } = data;
+---
+<section id="deneyim">
+  <div class="container">
+    <div class="exp-header" data-reveal>
+      <span class="section-label">Deneyim</span>
+      <h2 class="section-title">Kariyer Yolculuğum</h2>
+    </div>
+    <div class="timeline">
+      {experience.map((exp, i) => (
+        <div class={`timeline-item ${i % 2 === 0 ? 'left' : 'right'}`} data-reveal style={`--delay: ${i * 0.15}s`}>
+          <div class="timeline-node"></div>
+          <div class="timeline-card">
+            <span class="timeline-date">{exp.date}</span>
+            <h3 class="timeline-company">{exp.company}</h3>
+            <span class="timeline-role">{exp.role}</span>
+            <p class="timeline-desc">{exp.description}</p>
+            <div class="timeline-tags">
+              {exp.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+      <div class="timeline-line"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .exp-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: var(--border);
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 0 40px 48px;
+  }
+
+  .timeline-item.left {
+    padding-right: 60px;
+    text-align: right;
+  }
+
+  .timeline-item.right {
+    margin-left: 50%;
+    padding-left: 60px;
+  }
+
+  .timeline-node {
+    position: absolute;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 3px solid var(--accent);
+    z-index: 2;
+    transition: var(--transition);
+  }
+
+  .timeline-item.left .timeline-node {
+    right: -8px;
+  }
+
+  .timeline-item.right .timeline-node {
+    left: -8px;
+  }
+
+  .timeline-item.is-visible .timeline-node {
+    box-shadow: 0 0 20px var(--accent-dim);
+  }
+
+  .timeline-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: var(--transition);
+  }
+
+  .timeline-card:hover {
+    border-color: rgba(232, 197, 71, 0.15);
+    box-shadow: 0 6px 30px var(--accent-dim);
+  }
+
+  .timeline-date {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .timeline-company {
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+  }
+
+  .timeline-role {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .timeline-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .timeline-item.left .timeline-tags {
+    justify-content: flex-end;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 100px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 768px) {
+    .timeline-line {
+      left: 20px;
+    }
+    .timeline-item,
+    .timeline-item.left,
+    .timeline-item.right {
+      width: 100%;
+      margin-left: 0;
+      padding-left: 52px;
+      padding-right: 0;
+      text-align: left;
+    }
+    .timeline-item.left .timeline-node,
+    .timeline-item.right .timeline-node {
+      left: 12px;
+      right: auto;
+    }
+    .timeline-item.left .timeline-tags {
+      justify-content: flex-start;
+    }
+  }
+</style>

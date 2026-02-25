@@ -1,0 +1,214 @@
+---
+import data from '../data/portfolio.json';
+const { profile } = data;
+---
+<nav class="navbar">
+  <div class="nav-container container">
+    <a href="javascript:void(0)" class="nav-logo" data-section="hakkimda">
+      <img src={profile.logoUrl} alt={profile.brandName} class="nav-logo-img" />
+      <span class="nav-logo-text">{profile.shortName}<span class="logo-dot">.</span></span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <div class="nav-links">
+      <a href="javascript:void(0)" data-section="hakkimda">Hakkımda</a>
+      <a href="javascript:void(0)" data-section="yetenekler">Yetenekler</a>
+      <a href="javascript:void(0)" data-section="deneyim">Deneyim</a>
+      <a href="javascript:void(0)" data-section="projeler">Projeler</a>
+      <a href="javascript:void(0)" data-section="hizmetler">Hizmetler</a>
+      <a href="javascript:void(0)" data-section="iletisim" class="nav-cta">İletişim</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+    const navToggleInput = document.getElementById('nav-toggle') as HTMLInputElement;
+
+    navLinks.forEach((link) => {
+      const anchorLink = link as HTMLAnchorElement;
+      anchorLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        const sectionId = anchorLink.dataset.section;
+        const target = document.getElementById(sectionId || '');
+        
+        if (target) {
+          // Close mobile menu if open
+          navToggleInput.checked = false;
+          
+          // Smooth scroll to section
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 12px 0;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition);
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--text-primary);
+  }
+
+  .nav-logo-img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-text {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-dot {
+    color: var(--accent);
+    margin-left: 2px;
+  }
+
+  .nav-toggle-input {
+    display: none;
+  }
+
+  .nav-toggle-label {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .nav-toggle-label span {
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: var(--transition);
+    border-radius: 2px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    position: relative;
+    text-decoration: none;
+  }
+
+  .nav-links a:hover {
+    color: var(--text-primary);
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  .nav-cta {
+    padding: 8px 20px;
+    border: 1.5px solid var(--accent);
+    border-radius: 100px;
+    color: var(--accent) !important;
+    font-weight: 600;
+  }
+
+  .nav-cta::after {
+    display: none !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--accent);
+    color: var(--bg-primary) !important;
+  }
+
+  @media (max-width: 768px) {
+    .nav-toggle-label {
+      display: flex;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 75%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--bg-secondary);
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+      padding: 40px;
+      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-left: 1px solid var(--border);
+    }
+
+    .nav-links a {
+      font-size: 1.1rem;
+    }
+
+    .nav-toggle-input:checked ~ .nav-links {
+      right: 0;
+    }
+
+    .nav-toggle-input:checked ~ .nav-toggle-label span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .nav-toggle-input:checked ~ .nav-toggle-label span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle-input:checked ~ .nav-toggle-label span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
+</style>

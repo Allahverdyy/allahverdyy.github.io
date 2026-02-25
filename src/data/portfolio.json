@@ -1,0 +1,136 @@
+{
+  "profile": {
+    "name": "Abdulsamed Tanrıverdi",
+    "brandName": "Tanrıverdi Bilişim Hizmetleri",
+    "shortName": "Tanrıverdi",
+    "title": "Full Stack Geliştirici & Girişimci",
+    "tagline": "Fikirleri koda, kodu değere dönüştürür.",
+    "location": "Remote Available",
+    "email": "samet.1198@gmail.com",
+    "phone": "+90 553 171 63 31",
+    "socials": {
+      "github": "https://github.com/allahverdyy",
+      "linkedin": "https://www.linkedin.com/in/abdulsametanriverdi/",
+      "twitter": "https://www.x.com/Allahverdyy/",
+      "instagram": "https://www.instagram.com/abdulsamet.allahverdi/"
+    },
+    "avatarUrl": "https://i.imgur.com/39Bv0aj.png",
+    "logoUrl": "/assets/logo.png",
+    "status": "Site724 üzerinde çalışıyor 🚀"
+  },
+  "heroSection": {
+    "heading": "Modern Web ve Mobilin Kesişim Noktası",
+    "subHeading": "Sadece kod yazmıyorum; Flutter ve Next.js mimarileriyle ölçeklenebilir dijital ürünler inşa ediyorum. Karmaşık problemleri basit, şık ve performanslı arayüzlere çeviriyorum.",
+    "ctaPrimary": "Projelerimi İncele",
+    "ctaSecondary": "İletişime Geç"
+  },
+  "aboutSection": {
+    "bio": "Merhaba, ben Allahverdi. Yazılım dünyasında sadece teknik bir uygulayıcı değil, aynı zamanda çözüm mimarıyım. Geçmişteki kurumsal iletişim tecrübemi (Turkcell Global Bilgi), modern yazılım yeteneklerimle birleştirerek, insan odaklı ve kullanıcı dostu projeler geliştiriyorum. Şu sıralar Kars ve çevre illerdeki işletmelerin dijital dönüşümünü sağlayan Site724 girişimi üzerine yoğunlaşmış durumdayım.",
+    "philosophy": "Temiz Kod, Sürdürülebilir Mimari, Mutlu Kullanıcı."
+  },
+  "skills": {
+    "frontend": [
+      { "name": "Next.js", "level": "Advanced" },
+      { "name": "React", "level": "Advanced" },
+      { "name": "Tailwind CSS", "level": "Advanced" },
+      { "name": "TypeScript", "level": "Intermediate" }
+    ],
+    "mobile": [
+      { "name": "Flutter", "level": "Advanced" },
+      { "name": "Dart", "level": "Advanced" }
+    ],
+    "backend_and_tools": [
+      { "name": "Node.js", "level": "Intermediate" },
+      { "name": "Firebase", "level": "Advanced" },
+      { "name": "Git & GitHub", "level": "Advanced" },
+      { "name": "Figma", "level": "Intermediate" }
+    ]
+  },
+  "experience": [
+    {
+      "id": 1,
+      "company": "Site724",
+      "role": "Kurucu & Lead Developer",
+      "date": "2026 - Günümüz",
+      "description": "Kars ve çevre illerdeki yerel işletmeler için modern web çözümleri sunan freelance platformu. Next.js altyapısı ile yüksek performanslı kurumsal kimlik siteleri ve dijital pazarlama çözümleri geliştiriyorum.",
+      "tags": ["Entrepreneurship", "Next.js", "Business Development"]
+    },
+    {
+      "id": 2,
+      "company": "Freelance",
+      "role": "Full Stack Geliştirici",
+      "date": "2020 - Günümüz",
+      "description": "Global ve yerel müşteriler için özel web ve mobil uygulama çözümleri. E-ticaret entegrasyonları, kurumsal web siteleri ve UI/UX iyileştirmeleri.",
+      "tags": ["Flutter", "React", "Freelance"]
+    },
+    {
+      "id": 3,
+      "company": "Turkcell Global Bilgi",
+      "role": "Müşteri Deneyimi Uzmanı",
+      "date": "Geçmiş Dönem",
+      "description": "Kriz yönetimi, etkili iletişim ve kurumsal süreç takibi konularında yetkinlik kazandım. Bu tecrübeyi şu an müşteri ihtiyaçlarını doğru analiz etmekte kullanıyorum.",
+      "tags": ["Communication", "Problem Solving", "CRM"],
+      "image": "https://ceptcellweb-gtm.global-bilgi.com.tr/public/images/customization//Common/cepturkcellweb_v2_act_logon_page_ag/front_image_en.png"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Site724 Platformu",
+      "shortDescription": "Yerel işletmelerin dijital yüzünü değiştiren web platformu.",
+      "longDescription": "Next.js ve Tailwind CSS kullanılarak geliştirilen, yüksek SEO performansına sahip, işletmelerin hızlıca dijitalleşmesini sağlayan SaaS benzeri yapı.",
+      "techStack": ["Next.js", "Tailwind", "TypeScript"],
+      "liveUrl": "https://site724.com.tr",
+      "repoUrl": null,
+      "featured": true,
+      "image": "/assets/projects/site724-live-preview(1600x900).svg"
+    },
+    {
+      "id": 2,
+      "title": "Utility Mobile App — Yakında",
+      "shortDescription": "Günlük ihtiyaçları kolaylaştıracak, kullanıcı odaklı bir mobil uygulama planı.",
+      "longDescription": "Kullanıcı deneyimini ön planda tutan, hızlı ve hafif bir yardımcı uygulama olarak tasarlanıyor. İş akışlarını kolaylaştıracak araçlar, sezgisel arayüz ve performans odaklı mimari ile uygulanabilir bir çözüm sunmayı hedefliyoruz. Proje planlama aşamasında; ihtiyaç analizi, MVP tanımlaması ve tasarım prototipleri hazırlanarak geliştirme sürecine geçirilecektir.",
+      "techStack": ["Flutter", "Dart", "Firebase"],
+      "liveUrl": null,
+      "repoUrl": null,
+      "featured": true,
+      "image": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 3,
+      "title": "Kurumsal Kimlik Çalışmaları",
+      "shortDescription": "Çeşitli sektörler için geliştirilen modern web arayüzleri.",
+      "longDescription": "Eski teknolojilerden (Opencart/Wordpress) modern Headless CMS yapılarına dönüştürülen müşteri projeleri derlemesi.",
+      "techStack": ["React", "Strapi", "PostgreSQL"],
+      "liveUrl": null,
+      "repoUrl": null,
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1678341859828-bfb1a2bd527a?fm=jpg&q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d29yZHByZXNzJTIwd2Vic2l0ZXxlbnwwfHwwfHx8MA%3D%3D"
+    }
+  ],
+  "services": [
+    {
+      "title": "Mobil Uygulama Geliştirme",
+      "description": "Flutter ile tek kod tabanından hem iOS hem Android için native performanslı uygulamalar.",
+      "icon": "smartphone"
+    },
+    {
+      "title": "Modern Web Geliştirme",
+      "description": "Next.js ile SEO dostu, ışık hızında açılan, modern ve tepkisel (responsive) web siteleri.",
+      "icon": "globe"
+    },
+    {
+      "title": "UI/UX & Dijital Danışmanlık",
+      "description": "Kullanıcı dostu arayüz tasarımı ve markanızın dijital dünyadaki stratejik konumlandırması.",
+      "icon": "pen-tool"
+    }
+  ],
+  "contact": {
+    "ctaMessage": "Projeniz mi var? Gelin, birlikte hayata geçirelim.",
+    "emailTitle": "Bana Yazın",
+    "formConfig": {
+      "successMessage": "Mesajınız ulaştı! En kısa sürede döneceğim.",
+      "errorMessage": "Bir hata oluştu, lütfen mail atın."
+    }
+  }
+}
