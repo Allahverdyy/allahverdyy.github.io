@@ -43,20 +43,23 @@ const { contact, profile } = data;
       <div class="contact-form-wrapper">
         <form
           class="contact-form"
-          name="contact"
+          action="https://formspree.io/f/xvzblqoe"
           method="POST"
-          data-netlify="true"
         >
-          <input type="hidden" name="_replyto" value={profile.email} />
+          <input type="hidden" name="_subject" value="Yeni İletişim Mesajı" />
+
           <input type="text" name="name" placeholder="Adınız" required />
+
           <input
             type="email"
             name="email"
             placeholder="E-posta adresiniz"
             required
           />
+
           <textarea name="message" rows="5" placeholder="Mesajınız..." required
           ></textarea>
+
           <button type="submit" class="btn-primary">
             Gönder
             <svg
@@ -68,8 +71,10 @@ const { contact, profile } = data;
               stroke-width="2.5"
               stroke-linecap="round"
               stroke-linejoin="round"
-              ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
             >
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
           </button>
         </form>
       </div>
