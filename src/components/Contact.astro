@@ -43,6 +43,7 @@ const { contact, profile } = data;
       <div class="contact-form-wrapper">
         <form
           class="contact-form"
+          id="contactForm"
           action="https://formspree.io/f/xvzblqoe"
           method="POST"
         >
@@ -77,6 +78,9 @@ const { contact, profile } = data;
             </svg>
           </button>
         </form>
+        <div id="formPopup" class="form-popup">
+          Mesaj başarıyla gönderildi 🚀
+        </div>
       </div>
     </div>
   </div>
@@ -196,6 +200,26 @@ const { contact, profile } = data;
     width: auto;
   }
 
+  /* form popup notification */
+  .form-popup {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #1f2937;
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 9999;
+  }
+
+  .form-popup.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   @media (max-width: 768px) {
     .contact-wrapper {
       grid-template-columns: 1fr;
@@ -204,3 +228,35 @@ const { contact, profile } = data;
     }
   }
 </style>
+
+<script>
+  const form = document.getElementById("contactForm");
+  const popup = document.getElementById("formPopup");
+
+  if (form instanceof HTMLFormElement && popup instanceof HTMLElement) {
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        popup.classList.add("show");
+        form.reset();
+
+        setTimeout(() => {
+          popup.classList.remove("show");
+        }, 3000);
+      } else {
+        alert("Bir hata oluştu. Lütfen tekrar deneyin.");
+      }
+    });
+  }
+</script>
