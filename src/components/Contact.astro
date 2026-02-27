@@ -48,6 +48,7 @@ const { contact, profile } = data;
           method="POST"
         >
           <input type="hidden" name="_subject" value="Yeni İletişim Mesajı" />
+          <input type="hidden" name="_captcha" value="false" />
 
           <input type="text" name="name" placeholder="Adınız" required />
 
@@ -56,6 +57,7 @@ const { contact, profile } = data;
             name="email"
             placeholder="E-posta adresiniz"
             required
+            autocomplete="off"
           />
 
           <textarea name="message" rows="5" placeholder="Mesajınız..." required

@@ -4,7 +4,7 @@ const { profile } = data;
 ---
 <nav class="navbar">
   <div class="nav-container container">
-    <a href="javascript:void(0)" class="nav-logo" data-section="hakkimda">
+    <a href="/" class="nav-logo" id="nav-logo-home">
       <img src={profile.logoUrl} alt={profile.brandName} class="nav-logo-img" />
       <span class="nav-logo-text">{profile.shortName}<span class="logo-dot">.</span></span>
     </a>
@@ -31,6 +31,19 @@ const { profile } = data;
   document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-links a[data-section]');
     const navToggleInput = document.getElementById('nav-toggle') as HTMLInputElement;
+    const logoLink = document.getElementById('nav-logo-home') as HTMLAnchorElement;
+
+    // Logo click - scroll to hero or go home
+    if (logoLink) {
+      logoLink.addEventListener('click', (e) => {
+        const heroSection = document.getElementById('hero');
+        if (heroSection) {
+          e.preventDefault();
+          navToggleInput.checked = false;
+          heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    }
 
     navLinks.forEach((link) => {
       const anchorLink = link as HTMLAnchorElement;
