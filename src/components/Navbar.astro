@@ -45,21 +45,29 @@ const { profile } = data;
       });
     }
 
-    navLinks.forEach((link) => {
-      const anchorLink = link as HTMLAnchorElement;
-      anchorLink.addEventListener('click', (e) => {
+    // generic handler for any clickable element that carries data-section
+    const sectionScrollHandler = (e: Event) => {
+      // Event may not have preventDefault on all; cast
+      const el = e.currentTarget as HTMLElement;
+      const sectionId = el.dataset.section;
+      const target = sectionId ? document.getElementById(sectionId) : null;
+      if (target) {
         e.preventDefault();
-        const sectionId = anchorLink.dataset.section;
-        const target = document.getElementById(sectionId || '');
-        
-        if (target) {
-          // Close mobile menu if open
-          navToggleInput.checked = false;
-          
-          // Smooth scroll to section
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
+        if (navToggleInput) navToggleInput.checked = false;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    navLinks.forEach((link) => {
+      (link as HTMLElement).addEventListener('click', sectionScrollHandler);
+    });
+
+    // include other buttons/links outside nav (e.g., hero CTAs) using same data attribute
+    const otherLinks = document.querySelectorAll<HTMLAnchorElement | HTMLButtonElement>('a[data-section], button[data-section]');
+    otherLinks.forEach((el) => {
+      if (!el.classList.contains('nav-links')) {
+        el.addEventListener('click', sectionScrollHandler);
+      }
     });
   });
 </script>
