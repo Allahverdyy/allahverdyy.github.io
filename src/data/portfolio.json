@@ -87,17 +87,28 @@
     },
     {
       "id": 2,
+      "title": "Kağızman Barbershop Vitrini",
+      "shortDescription": "Yerel berberlik işletmesinin modern dijital yüzü.",
+      "longDescription": "Kağızman'daki usta berberlerin hizmetlerini müşterilerine tanıtmak için Site724 platformuyla tasarlanan, minimalist ve profesyonel web arayüzü. Barbershop deneyimini dijital ortama taşıyan, sade ama etkileyici tasarım.",
+      "techStack": ["HTML5"],
+      "liveUrl": "https://allahverdyy.github.io/kagizmanberberleri",
+      "repoUrl": null,
+      "featured": true,
+      "image": "/assets/projects/kagizmanberberleri.svg"
+    },
+    {
+      "id": 3,
       "title": "Utility Mobile App — Yakında",
       "shortDescription": "Günlük ihtiyaçları kolaylaştıracak, kullanıcı odaklı bir mobil uygulama planı.",
       "longDescription": "Kullanıcı deneyimini ön planda tutan, hızlı ve hafif bir yardımcı uygulama olarak tasarlanıyor. İş akışlarını kolaylaştıracak araçlar, sezgisel arayüz ve performans odaklı mimari ile uygulanabilir bir çözüm sunmayı hedefliyoruz. Proje planlama aşamasında; ihtiyaç analizi, MVP tanımlaması ve tasarım prototipleri hazırlanarak geliştirme sürecine geçirilecektir.",
       "techStack": ["Flutter", "Dart", "Firebase"],
       "liveUrl": null,
       "repoUrl": null,
-      "featured": true,
+      "featured": false,
       "image": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80"
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Kurumsal Kimlik Çalışmaları",
       "shortDescription": "Çeşitli sektörler için geliştirilen modern web arayüzleri.",
       "longDescription": "Eski teknolojilerden (Opencart/Wordpress) modern Headless CMS yapılarına dönüştürülen müşteri projeleri derlemesi.",
